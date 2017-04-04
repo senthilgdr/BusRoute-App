@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Update Boardings</title>
+
+</head>
+<body>
+<div th:include="layout/header"></div>
+	<div id="msg"></div>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-2">
+
+				<div class="portlet-title">
+					<div class="page-header">
+						<h4>Update Boardings</h4>
+					</div>
+				</div>
+				<div class="portlet-body" th:with="boarding=${EDIT_BOARDING}">
+					<form id="updateBoardingFrm" class="form-horizontal" role="form"
+						method="GET" action="../Boardings/update">
+						<div class="form-group">
+							<input type="hidden"
+								class="form-control" th:value="${boarding.id}" name="id" required="required"  readonly="readonly"
+								id="id"/>
+						</div>
+
+						<div class="form-group">
+							<label for="boardingsName">Name:</label><input type="text"
+								class="form-control" th:value="${boarding.name}" name="name" required="required" 
+								id="name"/>
+						</div>
+						<div class="form-group">
+							<label for="routeNo">RouteNo:</label><select name="routeNo" class="form-control">
+								<option  th:value="${boarding.route.id}" th:text="${boarding.route.name}"> </option>
+							</select>
+						</div>
+
+						
+						<div class="form-group">
+							<button type="submit" class="btn btn-success" id="updateRouteBtn">Submit</button>
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+
+</html>

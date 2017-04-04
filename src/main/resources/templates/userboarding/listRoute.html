@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>List of Routes</title>
+</head>
+<body>
+<div th:include="layout/header"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-14">
+				<div class="portlet-title">
+					<div class="page-header">
+						<h3>List of Routes</h3>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="table-responsive">
+						<table class="table table-bordered">
+
+							<thead>
+								<tr>
+									<th>S.No</th>
+									<th>ROUTE NAME</th>	
+									<th>BOARDING NAME</th>							
+									
+								</tr>
+							</thead>
+							<tbody>
+
+									
+								<tr th:each="userboarding,iter  : ${ROUTE_LIST}">
+								<td th:text="${iter.index+1}"></td>
+									<td th:text="${userboarding.route.name}"></td>
+									<td th:text="${userboarding.boardingDetail.name}"></td>
+																		
+									<td><a class='btn btn-success'  href=""
+										th:href="@{/userboardings/edit(id=${userboarding.id})}"><span
+											class='icon-pencil'></span>Edit</a></td>
+									<td><a class='btn btn-danger'  href=""
+										th:href="@{/userboardings/delete(id=${userboarding.id})}"><span
+											class='icon-pencil'></span>Delete</a></td>
+
+								</tr>
+
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+</html>
