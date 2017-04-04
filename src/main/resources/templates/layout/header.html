@@ -1,66 +1,71 @@
 
-<link rel="stylesheet"
-	href="css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
-<link rel="stylesheet"
-	href="../css/bootstrap_custom_nav_bar.css" />
-<link rel="stylesheet"
-	href="../css/style.css" th:href="@{/css/style.css}"/>
-<link rel="stylesheet"
-	href="../css/mdb.min.css" th:href="@{/css/mdb.min.css}"/>
+<link rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="../css/bootstrap_custom_nav_bar.css" />
+<link rel="stylesheet" href="../css/style.css"
+	th:href="@{/css/style.css}" />
+<link rel="stylesheet" href="../css/mdb.min.css"
+	th:href="@{/css/mdb.min.css}" />
 
 <script src="../js/jquery.min.js" th:href="@{/js/jquery.min.js}"></script>
-<script
-	src="../js/bootstrap.min.js" th:href="@{/js/bootstrap.min.js}"></script>
-	<script
-	src="../js/mdb.min.js" th:href="@{/js/mdb.min.js}"></script>
-	<script
-	src="../js/tether.min.js" th:href="@{/js/tether.min.js}"></script>
+<script src="../js/bootstrap.min.js" th:href="@{/js/bootstrap.min.js}"></script>
+<script src="../js/mdb.min.js" th:href="@{/js/mdb.min.js}"></script>
+<script src="../js/tether.min.js" th:href="@{/js/tether.min.js}"></script>
 
 <nav class="navbar-default">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand"
-				href="index.html" th:href="@{/}" ><span
+			<a class="navbar-brand" href="index.html" th:href="@{/}"><span
 				class="glyphicon glyphicon-home"> BusRouteApplication</span></a>
 		</div>
-		
+
 		<ul class="nav navbar-nav">
-<li class="dropdown"><a class="dropdown-toggle"
+			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="">Bus Routes <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					
-					
+
+
 				</ul></li>
 
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Users <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					
-									
-					
-				</ul></li> 
-				<li class="dropdown"><a class="dropdown-toggle"
+					<li><a href="../users/list" th:href="@{/users/list}">All
+							Users</a></li>
+					<li><a href="../roles/list" th:href="@{/roles/list}">All
+							Roles</a></li>
+
+
+				</ul></li>
+			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">MyRoutes <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-							
-					
-				</ul></li> 
+
+
+				</ul></li>
 
 		</ul>
 		<div class="navbar-header pull-right">
 
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown" th:if="${session.LOGGED_IN_USER != null}">
-				<a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Welcome <span
-						class="glyphicon glyphicon-user" th:if="@{session.LOGGED_IN_USER !=null}" th:text="${session.LOGGED_IN_USER.name}" ></span>!!!
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome
+						<span class="glyphicon glyphicon-user"
+						th:if="@{session.LOGGED_IN_USER !=null}"
+						th:text="${session.LOGGED_IN_USER.name}"></span>!!!
 				</a>
 
 					<ul class="dropdown-menu">
-					
-					</ul></li>
+						<li><a href="../users/MyProfile"
+							th:href="@{/users/myProfile}">My Profile </a></li>
+						<li><a href="../auth/Logout" th:href="@{/auth/Logout}">Sign
+								Out ! </a></li>
+						<li><a href="../users/changepassword"
+							th:href="@{/users/changepassword}">Change Password ! </a></li>
+					</ul>
+				</li>
 			</ul>
-		
+
 
 		</div>
 	</div>
