@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Update Role</title>
+
+</head>
+<body>
+<div th:include="layout/header"></div>
+	<div id="msg"></div>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-2">
+
+				<div class="portlet-title">
+					<div class="page-header">
+						<h4>Update Role</h4>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<form id="updateRoleFrm" class="form-horizontal" role="form"
+						method="GET" action="../roles/update">
+						<div class="form-group">
+							<input type="hidden"
+								class="form-control" th:value="${EDIT_ROLE.id}" name="id" required="required"  readonly="readonly"
+								id="id"/>
+						</div>
+
+						<div class="form-group">
+							<label for="roleName">Role Name:</label><input type="text"
+								class="form-control" th:value="${EDIT_ROLE.name}" name="name" required="required" 
+								id="name"/>
+						</div>
+
+						
+						<div class="form-group">
+							<button type="submit" class="btn btn-success" id="updateRoleBtn">Submit</button>
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+
+</html>
