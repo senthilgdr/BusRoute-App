@@ -1,0 +1,56 @@
+<div class="container" ng-controller="AuthController">
+
+	<div class="row">
+		<div class="col-md-4">
+
+			<div class="portlet-title">
+				<div class="page-header">
+					<h3>Register</h3>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<form>
+					<div ng-class='red' ng-if="errorMessage"><font color='red'>{{errorMessage}}</font> </div>
+					<div class="form-group">
+						<label for="name">Name :</label> <input type="text"
+							class="form-control" name="name" placeholder="Enter name"
+							autofocus="autofocus" required="required" id="name"
+							ng-model="user.name">
+					</div>
+
+					<div class="form-group">
+						<label for="userName">Email :</label> <input type="email"
+							class="form-control" name="emailId" placeholder="Enter emailId"
+							autofocus="autofocus" required="required" id="emailId"
+							ng-model="user.email">
+					</div>
+
+
+					<div class="form-group">
+						<label for="password">Password :</label> <input type="password"
+							class="form-control" name="password" placeholder="Enter Password"
+							required="required" id="password" ng-model="user.password">
+					</div>
+					<div class="form-group">
+						<label for="mobileNo">MobileNo :</label> <input type="number"
+							class="form-control" name="mobileNo" placeholder="Enter MobileNo"
+							required="required" id="mobileNo" ng-model="user.mobileNo">
+					</div>
+
+					<div class="form-group">
+						<button type="submit" name="add" class="btn btn-success"
+							ng-click="register()" id="addLoginBtn">Register</button>
+					</div>
+					
+					<hr />
+					<div class="form-group">
+						Already have an account? &nbsp;&nbsp; <a href="#"
+							ng-click="#login" class='btn btn-primary'>Sign In</a>
+					</div>
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+</div>

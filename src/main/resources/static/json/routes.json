@@ -1,0 +1,252 @@
+[{
+	"id": 1,
+	"route_no": 101,
+	"name": "THIRUVALLUR",
+	"pickup_time": "05:45:00",
+	"active": "1"
+},
+{
+	"id": 2,
+	"route_no": 101,
+	"name": "MANAVALAN NAGAR",
+	"pickup_time": "06:00:00",
+	"active": "1"
+},
+{
+	"id": 3,
+	"route_no": 101,
+	"name": "PUDU CHATRIAM",
+	"pickup_time": "06:10:00",
+	"active": "1"
+},
+{
+	"id": 4,
+	"route_no": 101,
+	"name": "VELLAVUDU",
+	"pickup_time": "06:15:00",
+	"active": "1"
+},
+{
+	"id": 5,
+	"route_no": 101,
+	"name": "THIRUMALISAI",
+	"pickup_time": "06:20:00",
+	"active": "1"
+},
+{
+	"id": 6,
+	"route_no": 101,
+	"name": "POONAMALLEE",
+	"pickup_time": "06:25:00",
+	"active": "1"
+},
+{
+	"id": 7,
+	"route_no": 101,
+	"name": "SUNDAR HOSPITAL",
+	"pickup_time": "06:27:00",
+	"active": "1"
+},
+{
+	"id": 8,
+	"route_no": 101,
+	"name": "KALLARAI",
+	"pickup_time": "06:28:00",
+	"active": "1"
+},
+{
+	"id": 9,
+	"route_no": 101,
+	"name": "KARAYANCHAVADI",
+	"pickup_time": "06:30:00",
+	"active": "1"
+},
+{
+	"id": 10,
+	"route_no": 101,
+	"name": "KUMMANANCHAVADI",
+	"pickup_time": "00:00:06",
+	"active": "1"
+},
+{
+	"id": 11,
+	"route_no": 101,
+	"name": "APARTMENT",
+	"pickup_time": "06:33:00",
+	"active": "1"
+},
+{
+	"id": 12,
+	"route_no": 101,
+	"name": "KATTUPAKKAM",
+	"pickup_time": "06:35:00",
+	"active": "1"
+},
+{
+	"id": 13,
+	"route_no": 101,
+	"name": "AYAPANTHANGAL",
+	"pickup_time": "06:37:00",
+	"active": "1"
+},
+{
+	"id": 14,
+	"route_no": 101,
+	"name": "PORUR",
+	"pickup_time": "06:40:00",
+	"active": "1"
+},
+{
+	"id": 15,
+	"route_no": 101,
+	"name": "SAKTHI NAGAR",
+	"pickup_time": "06:42:00",
+	"active": "1"
+},
+{
+	"id": 16,
+	"route_no": 101,
+	"name": "MUGALIVAKKAM",
+	"pickup_time": "06:43:00",
+	"active": "1"
+},
+{
+	"id": 17,
+	"route_no": 101,
+	"name": "L&T",
+	"pickup_time": "06:44:00",
+	"active": "1"
+},
+{
+	"id": 18,
+	"route_no": 101,
+	"name": "RAMAPURAM",
+	"pickup_time": "06:45:00",
+	"active": "1"
+},
+{
+	"id": 19,
+	"route_no": 101,
+	"name": "NANDAMBAKKAM",
+	"pickup_time": "06:47:00",
+	"active": "1"
+},
+{
+	"id": 20,
+	"route_no": 101,
+	"name": "BUTT ROAD",
+	"pickup_time": "06:50:00",
+	"active": "1"
+},
+{
+	"id": 21,
+	"route_no": 101,
+	"name": "COLLEGE CAMPUS",
+	"pickup_time": "07:30:00",
+	"active": "1"
+},
+{
+	"id": 22,
+	"route_no": 102,
+	"name": "VEPAMPATTU",
+	"pickup_time": "05:45:00",
+	"active": "1"
+},
+{
+	"id": 23,
+	"route_no": 102,
+	"name": "VEPAMPATTU SECOND GATE",
+	"pickup_time": "05:46:00",
+	"active": "1"
+},
+{
+	"id": 24,
+	"route_no": 102,
+	"name": "THIRUNINDRAVUR",
+	"pickup_time": "05:48:00",
+	"active": "1"
+},
+{
+	"id": 25,
+	"route_no": 102,
+	"name": "JAYA COLLEGE",
+	"pickup_time": "05:50:00",
+	"active": "1"
+},
+{
+	"id": 26,
+	"route_no": 102,
+	"name": "PATTABIRAM ",
+	"pickup_time": "05:55:00",
+	"active": "1"
+},
+{
+	"id": 27,
+	"route_no": 102,
+	"name": "HINDU COLLEGE",
+	"pickup_time": "05:57:00",
+	"active": "1"
+},
+{
+	"id": 28,
+	"route_no": 102,
+	"name": "AVADI CHECK POST",
+	"pickup_time": "06:00:00",
+	"active": "1"
+},
+{
+	"id": 29,
+	"route_no": 102,
+	"name": "AVADI BUS STAND",
+	"pickup_time": "06:03:00",
+	"active": "1"
+},
+{
+	"id": 30,
+	"route_no": 102,
+	"name": "VAISANAVI NAGAR",
+	"pickup_time": "06:05:00",
+	"active": "1"
+},
+{
+	"id": 31,
+	"route_no": 102,
+	"name": "THIRUMULAIVAYIL",
+	"pickup_time": "06:07:00",
+	"active": "1"
+},
+{
+	"id": 32,
+	"route_no": 102,
+	"name": "AMBATTUR O.T",
+	"pickup_time": "06:10:00",
+	"active": "1"
+},
+{
+	"id": 33,
+	"route_no": 102,
+	"name": "AMBATTUR POLICE STATION",
+	"pickup_time": "06:15:00",
+	"active": "1"
+},
+{
+	"id": 34,
+	"route_no": 102,
+	"name": "TELEPHONE EXCHANGE",
+	"pickup_time": "06:20:00",
+	"active": "1"
+},
+{
+	"id": 35,
+	"route_no": 102,
+	"name": "MAHALAKSHMI NAGAR",
+	"pickup_time": "06:55:00",
+	"active": "1"
+},
+{
+	"id": 36,
+	"route_no": 102,
+	"name": "COLLEGE CAMPUS ",
+	"pickup_time": "07:30:00",
+	"active": "1"
+}]

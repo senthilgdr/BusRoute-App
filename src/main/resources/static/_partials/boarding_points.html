@@ -1,0 +1,36 @@
+<div class="container" ng-controller="RouteBoardingPointController">
+	<div class="row">
+		<div class="col-md-14">
+			<div class="portlet-title">
+				<div class="page-header">
+					<h4>Route Boarding Details</h4>
+				</div>
+			</div>
+			<div class="portlet-body">
+			Filter:  		Boarding Point Name: <input type="text"  ng-model="name" />  <br/><br/>
+			
+				<div class="table-responsive">
+					<table class="table table-bordered">
+
+						<thead>
+							<tr>
+								<th>Sno</th>
+								<th>Route No</th>
+								<th>Boarding Point</th>
+								<th>Time</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="r in routedetails | filter : { 'name' : name}">
+						<td> {{$index+1}} </td>
+						<td> {{r.route.id}} - {{r.route.name}} </td>
+						<td>{{r.name}}</td>
+						<td>{{r.pickUpTime}}</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,38 @@
+[
+ {
+	"id" : 1,	
+	"name" : "Akshay",
+	"email" : "akshay@gmail.com",
+	"department" : "CSE"
+},
+{
+	"id" : 2,	
+	"name" :"Naresh",
+	"email" : "nareshkumarh@live.com",
+	"department" : "IT"
+} ,
+{
+	"id" : 3,	
+	"name" :"Janani",
+	"email" : "janani@gmail.com",
+	"department" : "M.E"
+},
+{
+	"id" : 4,	
+	"name" :"Sai",
+	"email" : "sai@gmail.com",
+	"department" : "MCA"
+},
+{
+	"id" : 5,	
+	"name" :"Senthamil",
+	"email" : "senthamil@gmail.com",
+	"department" : "B.E"
+},
+{
+	"id" : 6,	
+	"name" :"Suriya",
+	"email" : "suriya@gmail.com",
+	"department" : "B.E"
+}
+]

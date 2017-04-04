@@ -1,0 +1,39 @@
+<div class="container" ng-controller="RouteController" ng-init="init()">
+	<div class="row">
+		<div class="col-md-14">
+			<div class="portlet-title">
+				<div class="page-header">
+					<h4>Route Details</h4>
+				</div>
+			</div>
+			<div class="portlet-body">
+			Filter:  		Route No : <input type="text"  ng-model="route_no" />  <br/><br/>
+			<button ng-click="loadRoutes() "> Search</button>
+				<div class="table-responsive">
+					<table class="table table-bordered">
+
+						<thead>
+							<tr>
+								<th>Route No</th>
+								<th>Name</th>
+								<th>Start Time</th>
+								<th>Finish Time </th>
+								<th>No of Boarding Points </th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="r in routedetails | filter : { 'id' : route_no}">
+						<td> <a href="" ng-click="viewboardingpoints/{{r.routeNo}}"> {{r.routeNo}} </a> </td>	
+											
+						<td> <a href="" ng-click="viewboardingpoints/{{r.routeNo}}"> {{r.routeName}} </a></td>
+						<td>{{r.startTime}}</td>
+						<td>{{r.finishTime}}</td>
+						<td>{{r.noOfBoardingPoints}}</td>						
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

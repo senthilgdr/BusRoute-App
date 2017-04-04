@@ -1,0 +1,39 @@
+<div class="container" ng-controller="StudentRouteController">
+	<div class="row">
+		<div class="col-md-14">
+			<div class="portlet-title">
+				<div class="page-header">
+					<h4>Student - Route Details</h4>
+				</div>
+			</div>
+			<div class="portlet-body">
+			Filter:  		Route No : <input type="text"  ng-model="route_no" />  <br/><br/>
+			<button ng-click="loadRoutes() "> Search</button>
+				<div class="table-responsive">
+					<table class="table table-bordered">
+
+						<thead>
+							<tr>
+								<th>Sno</th>
+								<th>Name</th>								
+								<th>Route Name</th>
+								<th>Boarding Point </th>
+								<th>Pickup Time </th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="s in student_routes | filter : { 'route_no' : route_no}">
+						<td> {{$index+1}} </td>	
+						<td> {{s.userName}}</td>											
+						<td> Route -{{s.routeId}}- {{s.routeName}} </td>						
+						<td> {{s.boardingName}}</td>				
+						<td> {{s.pickUpTime}}</td>
+						
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

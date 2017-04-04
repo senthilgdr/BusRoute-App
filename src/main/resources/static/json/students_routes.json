@@ -1,0 +1,247 @@
+[
+ {
+	"id" : 1,	
+	"student_id" : 1,
+	"route_id" : 1
+},
+{
+	"id" : 2,	
+	"student_id" : 2,
+	"route_id" : 2
+} ,
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 4
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 5
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 7
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 8
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 20
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 6,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 26
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 30
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 2
+},
+{
+	"id" : 3,	
+	"student_id" : 3,
+	"route_id" : 25
+}
+]
