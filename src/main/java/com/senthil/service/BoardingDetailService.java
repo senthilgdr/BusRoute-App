@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.senthil.dao.BoardingDetailDAO;
 import com.senthil.model.BoardingDetail;
+import com.senthil.model.RouteStats;
 
 @Service
 public class BoardingDetailService {
@@ -40,6 +41,9 @@ public class BoardingDetailService {
 
 	public List<BoardingDetail> findByRouteNo(Long routeNo) {
 		return boardingDetailDAO.findByRouteNo(routeNo);
+	}
+	public List<RouteStats> findRouteStats() {
+		return boardingDetailDAO.findRouteStats();
 	}
 
 }

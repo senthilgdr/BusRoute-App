@@ -28,16 +28,16 @@ public class UserBoardingDetailDAO {
 		
 		User user = new User();
 		user.setId(rs.getLong("id"));
-		user.setName(rs.getString("name"));
+		user.setName(rs.getString("user_name"));
 
 		BoardingDetail bd = new BoardingDetail();
 		bd.setId(rs.getLong("id"));
-		bd.setName(rs.getString("name"));
+		bd.setName(rs.getString("boarding_name"));
 		bd.setPickUpTime(rs.getTime("pickup_time").toLocalTime());
 
 		Route r = new Route();
 		r.setId(rs.getLong("id"));
-		r.setName(rs.getString("name"));
+		r.setName(rs.getString("route_name"));
 		bd.setRoute(r);
 
 		ubd.setUser(user);

@@ -2,6 +2,7 @@ package com.senthil.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.senthil.model.BoardingDetail;
 import com.senthil.model.Route;
+import com.senthil.model.RouteStats;
 
 @Repository
 public class BoardingDetailDAO {
@@ -22,8 +24,10 @@ public class BoardingDetailDAO {
 		bd.setId(rs.getLong("id"));
 		bd.setName(rs.getString("name"));
 		bd.setActive(rs.getBoolean("active"));
-		bd.setPickUpTime(rs.getTime("pickup_time").toLocalTime());
-
+		Time time = rs.getTime("pickup_time");
+		if (time != null) {
+			bd.setPickUpTime(time.toLocalTime());
+		}
 		Route r = new Route();
 		r.setId(rs.getLong("route_id"));
 		r.setName(rs.getString("route_name"));
@@ -89,6 +93,24 @@ public class BoardingDetailDAO {
 		int rows = jdbcTemplate.update(sql, params);
 		System.out.println("No of rows inserted" + rows);
 	}
-
 	
+	public List<RouteStats> findRouteStats() {
+		String sql = "SELECT route_id, r.name AS route_name,  MIN(pickup_time) start_time, MAX(pickup_time) finish_time, "
+				+ " COUNT(*) no_of_boarding_points FROM route_boarding_details bd, routes r WHERE bd.route_id = r.id GROUP BY route_id, route_name";
+
+		List<RouteStats> list = jdbcTemplate.query(sql, (rs, rowNum) -> {
+
+			RouteStats r = new RouteStats();
+			r.setRouteNo(rs.getLong("route_id"));
+			r.setRouteName(rs.getString("route_name"));
+			r.setStartTime(rs.getTime("start_time").toLocalTime());
+			r.setFinishTime(rs.getTime("finish_time").toLocalTime());
+			r.setNoOfBoardingPoints(rs.getInt("no_of_boarding_points"));
+			return r;
+
+		});
+
+		return list;
+
+	}
 }
