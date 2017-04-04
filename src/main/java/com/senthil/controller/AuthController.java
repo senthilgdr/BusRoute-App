@@ -32,7 +32,7 @@ public class AuthController {
 		if (user != null) {
 			session.setAttribute("LOGGED_IN_USER", user);
 
-			return "redirect:/home"; 
+			return "/home"; 
 		} else {
 			modelMap.addAttribute("ERROR_MESSAGE", "Invalid EmailID/Password");
 			return "/index";

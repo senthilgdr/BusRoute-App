@@ -47,10 +47,11 @@ public class RouteDAO {
 
 	public void update(Route route) {
 
-		String sql = "update routes set name = ? ,active = ? ,trip = ?  from routes where id = ? ";
+		System.out.println(route);
+		String sql = "UPDATE routes SET NAME = ? ,active = ? ,trip =? WHERE id=?";
 
 		Object[] params = new Object[] { route.getName(), route.isActive(), route.getTrip(), route.getId() };
-		int rows = jdbcTemplate.update(sql, params);
+		int rows = jdbcTemplate.update(sql,params);
 		System.out.println("No of rows updated" + rows);
 	}
 

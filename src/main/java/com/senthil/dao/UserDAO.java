@@ -94,7 +94,7 @@ public class UserDAO {
 
 	public void update(User user) {
 
-		String sql = "update user_accounts set name= ?, role_id = ? , mobile_no =? where id=? ";
+		String sql = "update user_accounts set name= ?, role_id = ? ,email=?, mobile_no =? where id=? ";
 
 		Integer rows = jdbcTemplate.update(sql,  user.getName(), user.getRole().getId(),
 				user.getEmail(), user.getMobileNo(), user.getId());
@@ -106,7 +106,7 @@ public class UserDAO {
 	public boolean changePassword(String emailId, String oldPassword, String newPassword) {
 
 		boolean isModified = false;
-		String sql = "update user_accounts set password=?, modified_at= now() where email_id=? and password= ?";
+		String sql = "update user_accounts set password=?, modified_at= now() where email=? and password= ?";
 		Integer rows = jdbcTemplate.update(sql, newPassword, emailId, oldPassword);
 
 		if (rows >= 1) {
