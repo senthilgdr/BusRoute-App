@@ -21,9 +21,11 @@
 
 							<thead>
 								<tr>
-									<th>S.No</th>
+									<th>S.NO</th>
+									<th>ROUTE NAME</th>	
 									<th>NAME</th>
-									<th>ROUTE NAME</th>								
+									<th>PICKUP TIME</th>	
+																
 									
 								</tr>
 							</thead>
@@ -32,8 +34,9 @@
 									
 								<tr th:each="boarding,iter  : ${ROUTE_LIST}">
 								<td th:text="${iter.index+1}"></td>
+								<td th:text="${boarding.route.name}"></td>
 									<td th:text="${boarding.name}"></td>
-									<td th:text="${boarding.route.name}"></td>
+									<td th:text="${boarding.pickUpTime}"></td>
 									
 									<td><a class='btn btn-success'  href=""
 										th:href="@{/boardings/edit(id=${boarding.id})}"><span

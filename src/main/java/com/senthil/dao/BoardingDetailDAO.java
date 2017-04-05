@@ -69,7 +69,7 @@ public class BoardingDetailDAO {
 
 	public void update(BoardingDetail bd) {
 
-		String sql = "update route_boarding_details set route_id = ? , name = ? ,active = ? ,pickup_time = ?  from route_boarding_details where id = ? ";
+		String sql = "update route_boarding_details set route_id = ? , name = ? ,active = ? ,pickup_time = ?  where id = ? ";
 
 		Object[] params = new Object[] { bd.getRoute().getId(), bd.getName(), bd.isActive(), bd.getPickUpTime(),
 				bd.getId() };

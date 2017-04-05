@@ -35,6 +35,9 @@
 									<td th:text="${route.name}"></td>
 									<td th:text="${route.trip}"></td>
 									
+									<td><a class='btn btn-success' href="" th:href="@{/routes/create}"><span
+											class='icon-pencil'></span>Add</a></td>
+									
 									<td><a class='btn btn-success'  href=""
 										th:href="@{/routes/edit(id=${route.id})}"><span
 											class='icon-pencil'></span>Edit</a></td>
@@ -49,11 +52,7 @@
 
 					</div>
 				</div>
-				<div class="row">
-					<a class='btn btn-success' href="" th:href="@{/routes/create}">Add
-						Routes</a>
-				</div>
-
+				
 			</div>
 
 		</div>

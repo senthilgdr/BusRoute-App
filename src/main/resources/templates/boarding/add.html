@@ -21,16 +21,26 @@
 				<div class="portlet-body">
 					<form id="addBoardingFrm" class="form-horizontal" role="form"
 						method="GET" action="../boardings/save">
+					
+						
+						<div class="form-group">
+							<label for="routeNo">RouteName:</label>
+							<select name="routeNo">
+							<option th:each="r,iter  : ${ROUTES_LIST}" th:value="${r.id}" th:text="${r.id} +'-' + ${r.name}"></option>
+								
+							</select>
+						</div>
 
 						<div class="form-group">
-							<label for="boardingName">Boarding Name:</label><input type="text"
-								class="form-control" name="name" required="required"
+							<label for="boardingName">Boarding Name:</label><input
+								type="text" class="form-control" name="name" required="required"
 								autofocus="autofocus" id="name" />
 						</div>
+
 						<div class="form-group">
-							<label for="routeNo">RouteNo:</label><input type="text"
-								class="form-control" name="routeNo" required="required"
-								autofocus="autofocus" id="routeNo" />
+							<label for="pickUpTime">PickUp Time:</label><input type="time"
+								class="form-control" name="pickUpTime" required="required"
+								autofocus="autofocus" id="pickUpTime" />
 						</div>
 
 						<div class="form-group">

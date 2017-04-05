@@ -21,7 +21,7 @@ public class UserBoardingDetailService {
 		return userBoardingDetailDAO.list();
 	}
 
-	public List<UserBoardingDetail> findByUserId(Long userId) {
+	public UserBoardingDetail findByUserId(Long userId) {
 		return userBoardingDetailDAO.findByUserId(userId);
 	}
 
@@ -47,6 +47,24 @@ public class UserBoardingDetailService {
 	public void save(UserBoardingDetail bd) {
 
 		userBoardingDetailDAO.save(bd);
+	}
+	
+	public void saveOrUpdate(UserBoardingDetail bd) {
+
+		Long userId = bd.getUser().getId();
+		UserBoardingDetail boardingObj = userBoardingDetailDAO.findByUserId(userId);
+		//if boarding point not exists - insert
+		if (boardingObj == null) {
+		
+			userBoardingDetailDAO.save(bd);
+		}
+		else
+		{
+			//if boarding point exists update
+			boardingObj.setBoardingDetail(bd.getBoardingDetail()); // update boarding point
+			userBoardingDetailDAO.update(boardingObj);
+		}
+		
 	}
 
 	public Map<Long, Long> findBoardingPointStats() {

@@ -11,7 +11,7 @@
 	<div class="container">
 
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-md-5">
 
 				<div class="portlet-title">
 					<div class="page-header">
@@ -23,18 +23,18 @@
 						method="GET" action="../userboardings/save">
 
 						<div class="form-group">
-							<label for="userName">UserName:</label><input type="text"
-								class="form-control" name="userId" required="required"
-								autofocus="autofocus" id="userId" />
+							<label for="boardingId">Select Boarding Point:</label>
+								<select name="boardingId">
+							<!-- <option th:each="b,iter  : ${BOARDING_LIST}" th:value="${b.id}" th:text="${b}"></option> -->
+							
+								<option th:each="b,iter  : ${BOARDING_LIST}" th:value="${b.id}" th:text="${b.id} +'-' + ${b.name}"></option>
+								
+							</select>
 						</div>
+						
 						<div class="form-group">
-							<label for="boardingName">BoardingName:</label><input type="text"
-								class="form-control" name="boardingId" required="required"
-								autofocus="autofocus" id="boardingId" />
-						</div>
-
-						<div class="form-group">
-							<button type="submit" class="btn btn-success" id="addUserBoardingBtn">Submit</button>
+							<button type="submit" class="btn btn-success"
+								id="addUserBoardingBtn">Submit</button>
 						</div>
 
 					</form>

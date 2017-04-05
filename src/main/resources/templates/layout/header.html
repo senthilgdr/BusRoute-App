@@ -43,7 +43,7 @@
 
 				</ul></li>
 			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">MyRoutes <span class="caret"></span></a>
+				data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
 				<ul class="dropdown-menu">
 
 					<li><a href="../boardings/listByRoute"
@@ -54,6 +54,16 @@
 						th:href="@{/userboardings/listByRoute}">List Route
 							UserBoardings</a></li>
 				</ul></li>
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#">My Preferences <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="../userboardings/create"
+						th:href="@{/userboardings/create}">Add Boarding Point</a></li>
+						
+						<li><a href="../userboardings/create"
+						th:href="@{/userboardings/listByUser}">View Boarding Point</a></li>
+				</ul></li>
+			
 
 		</ul>
 		<div class="navbar-header pull-right">

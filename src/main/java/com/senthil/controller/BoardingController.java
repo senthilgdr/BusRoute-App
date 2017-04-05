@@ -1,5 +1,6 @@
 package com.senthil.controller;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.senthil.model.BoardingDetail;
 import com.senthil.model.Route;
 import com.senthil.service.BoardingDetailService;
+import com.senthil.service.RouteService;
 
 @Controller
 @RequestMapping("boardings")
@@ -21,6 +23,9 @@ public class BoardingController {
 
 	@Autowired
 	private BoardingDetailService boardingDetailService;
+	
+	@Autowired
+	private RouteService routeService;
 
 	@GetMapping("/list")
 	public String list(ModelMap modelMap, HttpSession session) throws Exception {
@@ -59,24 +64,34 @@ public class BoardingController {
 	}
 
 	@GetMapping("/create")
-	public String create() {
+	public String create(ModelMap modelMap) {
+		
+		List<Route> list = routeService.list();
+		modelMap.addAttribute("ROUTES_LIST", list);
 		return "boarding/add";
 	}
 
 	@GetMapping("/save")
-	public String save(@RequestParam("routeNo") Long routeNo,@RequestParam("name") String name, ModelMap modelMap, HttpSession session) throws Exception {
+	public String save(@RequestParam("routeNo") Long routeNo,@RequestParam("name") String name,@RequestParam("pickUpTime") String pickUpTime, ModelMap modelMap, HttpSession session) throws Exception {
 
 		try {
 
 			// Step : Store in View
+			System.out.println(pickUpTime);
 			BoardingDetail boardingDetail = new BoardingDetail();
 			boardingDetail.setName(name);
 			boardingDetail.setActive(true);
+			
+			 LocalTime localTime=LocalTime.parse(pickUpTime);
+			 System.out.println(localTime);
+			 
+			 boardingDetail.setPickUpTime(localTime);
 			
 			Route route=new Route();
 			route.setId(routeNo);
 			
 			boardingDetail.setRoute(route);
+			System.out.println(boardingDetail);
 
 			boardingDetailService.save(boardingDetail);
 
@@ -122,7 +137,7 @@ public class BoardingController {
 	}
 
 	@GetMapping("/update")
-	public String update(@RequestParam("id") Long id, @RequestParam("routeNo") Long routeNo,@RequestParam("name") String name, ModelMap modelMap,
+	public String update(@RequestParam("id") Long id, @RequestParam("routeNo") Long routeNo,@RequestParam("name") String name,@RequestParam("pickUpTime") String pickUpTime, ModelMap modelMap,
 			HttpSession session) throws Exception {
 
 		try {
@@ -130,7 +145,13 @@ public class BoardingController {
 			BoardingDetail boardingDetail = new BoardingDetail();
 			boardingDetail.setId(id);
 			boardingDetail.setName(name);
+			boardingDetail.setActive(true);
 			
+			 LocalTime localTime=LocalTime.parse(pickUpTime);
+			 System.out.println(localTime);
+			 
+			 boardingDetail.setPickUpTime(localTime);
+						
 			Route route=new Route();
 			route.setId(routeNo);			
 			boardingDetail.setRoute(route);

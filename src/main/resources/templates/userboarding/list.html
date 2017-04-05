@@ -23,7 +23,9 @@
 								<tr>
 									<th>S.No</th>
 									<th>USER NAME</th>
-									<th>BOARDING NAME</th>						
+									<th>BOARDING NAME</th>	
+									<th>ROUTE NAME</th>
+									<th>PICKUP TIME</th>						
 									
 								</tr>
 							</thead>
@@ -34,6 +36,9 @@
 								<td th:text="${iter.index+1}"></td>
 									<td th:text="${userboarding.user.name}"></td>
 									<td th:text="${userboarding.boardingDetail.name}"></td>
+									<td th:text="${userboarding.boardingDetail.route.name}"></td>
+									<td th:text="${userboarding.boardingDetail.pickUpTime}"></td>
+									
 									
 									<td><a class='btn btn-success'  href=""
 										th:href="@{/userboardings/edit(id=${userboarding.id})}"><span
@@ -49,13 +54,9 @@
 
 					</div>
 				</div>
-				<div class="row">
-					<a class='btn btn-success' href="" th:href="@{/userboardings/create}">Add
-						User Boarding</a>
-				</div>
-
+				                     
 			</div>
-
+                                                      
 		</div>
 	</div>
 

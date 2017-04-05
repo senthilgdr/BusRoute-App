@@ -12,28 +12,31 @@
 			<div class="col-md-14">
 				<div class="portlet-title">
 					<div class="page-header">
-						<h3>List of User Boardings</h3>
+						<h3>My Boarding Point</h3>
 					</div>
 				</div>
-				<div class="portlet-body">
+				<div class="portlet-body" th:with="userboarding=${USER_BOARDING_DETAIL}">
 					<div class="table-responsive">
 						<table class="table table-bordered">
 
 							<thead>
 								<tr>
-									<th>S.No</th>
-									<th>USER NAME</th>
+									<th>USER NAME</th>									
+									<th>ROUTE NAME</th>
 									<th>BOARDING NAME</th>	
-																	
+									<th>PICKUP TIME</th>						
+									
 								</tr>
 							</thead>
 							<tbody>
 
 									
-								<tr th:each="userboarding,iter  : ${USER_LIST}">
-								<td th:text="${iter.index+1}"></td>
+								<tr>
 									<td th:text="${userboarding.user.name}"></td>
+									<td th:text="${userboarding.boardingDetail.route.id} +'-' + ${userboarding.boardingDetail.route.name}"></td>
 									<td th:text="${userboarding.boardingDetail.name}"></td>
+									
+									<td th:text="${userboarding.boardingDetail.pickUpTime}"></td>
 									
 									<td><a class='btn btn-success'  href=""
 										th:href="@{/userboardings/edit(id=${userboarding.id})}"><span

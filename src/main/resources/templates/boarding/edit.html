@@ -6,7 +6,7 @@
 
 </head>
 <body>
-<div th:include="layout/header"></div>
+	<div th:include="layout/header"></div>
 	<div id="msg"></div>
 	<div class="container">
 
@@ -20,25 +20,34 @@
 				</div>
 				<div class="portlet-body" th:with="boarding=${EDIT_BOARDING}">
 					<form id="updateBoardingFrm" class="form-horizontal" role="form"
-						method="GET" action="../Boardings/update">
-						<div class="form-group">
-							<input type="hidden"
-								class="form-control" th:value="${boarding.id}" name="id" required="required"  readonly="readonly"
-								id="id"/>
-						</div>
+						method="GET" action="../boardings/update">
 
 						<div class="form-group">
-							<label for="boardingsName">Name:</label><input type="text"
-								class="form-control" th:value="${boarding.name}" name="name" required="required" 
-								id="name"/>
+							<input type="hidden" class="form-control"
+								th:value="${boarding.id}" name="id" required="required"
+								readonly="readonly" id="id" />
 						</div>
 						<div class="form-group">
-							<label for="routeNo">RouteNo:</label><select name="routeNo" class="form-control">
-								<option  th:value="${boarding.route.id}" th:text="${boarding.route.name}"> </option>
+							<label for="routeNo">RouteName:</label><select name="routeNo"
+								class="form-control">
+								<option th:value="${boarding.route.id}"
+									th:text="${boarding.route.name}"></option>
 							</select>
 						</div>
+						<div class="form-group">
+							<label for="boardingsName">BoardingName:</label><input
+								type="text" class="form-control" th:value="${boarding.name}"
+								name="name" required="required" id="name" />
+						</div>
 
-						
+						<div class="form-group">
+							<label for="pickUpTime">PickUp Time:</label><input type="time"
+								class="form-control" th:value="${boarding.pickUpTime}"
+								name="pickUpTime" required="required" autofocus="autofocus"
+								id="pickUpTime" />
+						</div>
+
+
 						<div class="form-group">
 							<button type="submit" class="btn btn-success" id="updateRouteBtn">Submit</button>
 						</div>

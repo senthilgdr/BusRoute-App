@@ -15,6 +15,8 @@ import com.senthil.model.BoardingDetail;
 import com.senthil.model.Route;
 import com.senthil.model.User;
 import com.senthil.model.UserBoardingDetail;
+import com.senthil.service.BoardingDetailService;
+import com.senthil.service.RouteService;
 import com.senthil.service.UserBoardingDetailService;
 
 @Controller
@@ -23,6 +25,13 @@ public class UserBoardingController {
 
 	@Autowired
 	private UserBoardingDetailService userBoardingService;
+	
+	@Autowired
+	private BoardingDetailService boardingDetailService;
+	
+	@Autowired
+	private RouteService routeService;
+
 
 	@GetMapping("/list")
 	public String list(ModelMap modelMap, HttpSession session) throws Exception {
@@ -46,9 +55,9 @@ public class UserBoardingController {
 
 		try {
 			User user = (User) session.getAttribute("LOGGED_IN_USER");
-			List<UserBoardingDetail> list = userBoardingService.findByUserId(user.getId());
+			UserBoardingDetail list = userBoardingService.findByUserId(user.getId());
 			System.out.println("list:" + list);
-			modelMap.addAttribute("USER_LIST", list);
+			modelMap.addAttribute("USER_BOARDING_DETAIL", list);
 
 			return "userboarding/listUser";
 
@@ -79,12 +88,14 @@ public class UserBoardingController {
 	}
 
 	@GetMapping("/create")
-	public String create() {
+	public String create(ModelMap modelMap) {
+		List<BoardingDetail> list = boardingDetailService.list();
+		modelMap.addAttribute("BOARDING_LIST" , list );
 		return "userboarding/add";
 	}
 
 	@GetMapping("/save")
-	public String save(@RequestParam("userId") Long userId, @RequestParam("boardingId") Long boardingId,
+	public String save( @RequestParam("boardingId") Long boardingId,
 			ModelMap modelMap, HttpSession session) throws Exception {
 
 		try {
@@ -94,7 +105,7 @@ public class UserBoardingController {
 			userBoardingDetail.setActive(true);
 
 			User user = (User) session.getAttribute("LOGGED_IN_USER");
-			user.setId(userId);
+			user.setId(user.getId());
 			userBoardingDetail.setUser(user);
 
 			BoardingDetail boardingDetail = new BoardingDetail();
@@ -104,7 +115,7 @@ public class UserBoardingController {
 
 			userBoardingDetail.setActive(true);
 
-			userBoardingService.save(userBoardingDetail);
+			userBoardingService.saveOrUpdate(userBoardingDetail);
 
 			return "redirect:list";
 		} catch (Exception e) {

@@ -56,11 +56,11 @@ public class UserBoardingDetailDAO {
 		return list;
 	}
 
-	public List<UserBoardingDetail> findByUserId(Long userId) {
+	public UserBoardingDetail findByUserId(Long userId) {
 
 		String sql = "select ubd.id, user_id, u.name as user_name, boarding_id, bd.name as boarding_name, bd.pickup_time, ubd.active, r.id as route_no, r.name as route_name from user_boarding_details ubd, route_boarding_details bd, routes r , user_accounts u  where ubd.user_id = u.id and ubd.boarding_id =  bd.id and bd.route_id = r.id  and ubd.user_id = ?";
 
-		List<UserBoardingDetail> list = jdbcTemplate.query(sql, new Object[] { userId }, (rs, rowNum) -> {
+		UserBoardingDetail list = jdbcTemplate.queryForObject(sql, new Object[] { userId }, (rs, rowNum) -> {
 			return convert(rs);
 		});
 		return list;
@@ -78,7 +78,7 @@ public class UserBoardingDetailDAO {
 
 	public void update(UserBoardingDetail bd) {
 
-		String sql = "update user_boarding_details set user_id = ? , boarding_id = ? , active = ?  from user_boarding_details where id = ? ";
+		String sql = "update user_boarding_details set user_id = ? , boarding_id = ? , active = ?  where id = ? ";
 
 		Object[] params = new Object[] { bd.getUser().getId(), bd.getBoardingDetail().getId(), bd.isActive(),
 				bd.getId() };
