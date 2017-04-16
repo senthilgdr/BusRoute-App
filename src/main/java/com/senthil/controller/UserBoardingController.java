@@ -1,6 +1,7 @@
 package com.senthil.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -67,18 +68,17 @@ public class UserBoardingController {
 			return "/home";
 		}
 	}
-	
-	@GetMapping("/listByRoute")
-	public String listByRoute(ModelMap modelMap, HttpSession session) throws Exception {
+	@GetMapping("/listByStudent")
+	public String listByStudent(@RequestParam("boardingId") Long boardingId,ModelMap modelMap, HttpSession session) throws Exception {
 
 		try {
-			Route route=new Route();
-						
-			List<UserBoardingDetail> list = userBoardingService.findByRouteNo(route.getId());
+			BoardingDetail bd=boardingDetailService.findById(boardingId);
+			modelMap.addAttribute("BOARDING_DETAIL", bd);
+			List<UserBoardingDetail> list = userBoardingService.findByStudent(boardingId);
 			System.out.println("list:" + list);
-			modelMap.addAttribute("ROUTE_LIST", list);
+			modelMap.addAttribute("STUDENT_BOARDING_DETAIL", list);
 
-			return "userboarding/listRoute";
+			return "userboarding/listStudent";
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -86,14 +86,37 @@ public class UserBoardingController {
 			return "/home";
 		}
 	}
+	
+	@GetMapping("/listByRouteName")
+	public String listByRouteName( @RequestParam("routeName") String routeName,ModelMap modelMap, HttpSession session) throws Exception {
 
+		try {
+			 String []  s=routeName.split("-");			 
+			 Long routeId=Long.valueOf(s[0]);
+			
+			Route r=routeService.findById(routeId);
+			modelMap.addAttribute("ROUTE_DETAIL", r);
+			
+			Map<String, Long> list = userBoardingService.findByRouteNo(routeId);
+			System.out.println("list:" + list);
+			modelMap.addAttribute("USER_BOARDING_LIST", list);
+
+			return "userboarding/listrouteName";
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			modelMap.addAttribute("errorMessage", e.getMessage());
+			return "/home";
+		}
+	}
+	
 	@GetMapping("/create")
 	public String create(ModelMap modelMap) {
 		List<BoardingDetail> list = boardingDetailService.list();
 		modelMap.addAttribute("BOARDING_LIST" , list );
 		return "userboarding/add";
 	}
-
+	
 	@GetMapping("/save")
 	public String save( @RequestParam("boardingId") Long boardingId,
 			ModelMap modelMap, HttpSession session) throws Exception {
@@ -112,8 +135,6 @@ public class UserBoardingController {
 			boardingDetail.setId(boardingId);
 
 			userBoardingDetail.setBoardingDetail(boardingDetail);
-
-			userBoardingDetail.setActive(true);
 
 			userBoardingService.saveOrUpdate(userBoardingDetail);
 
@@ -187,5 +208,39 @@ public class UserBoardingController {
 		}
 
 	}
+	
+	@GetMapping("/boardingstats")
+	public String findBoardingPointStats(ModelMap modelMap) {
+		try{
+			
+			Map<String, Long> map= userBoardingService.findBoardingPointStats();
+		
+		System.out.println("Map:" + map);
+		modelMap.addAttribute("BOARDING_STATS", map);
 
+		return "userboarding/listboardingstats";
+
+	} catch (Exception e) {
+		e.printStackTrace();
+		modelMap.addAttribute("errorMessage", e.getMessage());
+		return "/home";
+	}
+	}
+	
+	@GetMapping("/routestats")
+	public String findByRouteStats(ModelMap modelMap) {
+		
+		try{
+			Map<String, Long> map = userBoardingService.findByRouteStats();
+		    System.out.println("Map:" + map);
+			modelMap.addAttribute("ROUTE_STATS", map);
+
+			return "userboarding/listroutestats";
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			modelMap.addAttribute("errorMessage", e.getMessage());
+			return "/home";
+		}
+	}
 }

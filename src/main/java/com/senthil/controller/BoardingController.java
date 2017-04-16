@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.senthil.model.BoardingDetail;
 import com.senthil.model.Route;
+import com.senthil.model.RouteStats;
 import com.senthil.service.BoardingDetailService;
 import com.senthil.service.RouteService;
 
@@ -45,16 +46,35 @@ public class BoardingController {
 		}
 	}
 	@GetMapping("/listByRoute")
-	public String listByRoute(ModelMap modelMap, HttpSession session) throws Exception {
+	public String listByRoute( @RequestParam("routeId") Long routeId,ModelMap modelMap, HttpSession session) throws Exception {
 
 		try {
-			Route route=new Route();
-
-			List<BoardingDetail> list = boardingDetailService.findByRouteNo(route.getId());
+			Route r=routeService.findById(routeId);
+			modelMap.addAttribute("ROUTE_DETAIL", r);
+			List<BoardingDetail> list = boardingDetailService.findByRouteNo(routeId);
 			System.out.println("list:" + list);
-			modelMap.addAttribute("ROUTE_LIST", list);
+			modelMap.addAttribute("BOARDING_LIST", list);
 
 			return "boarding/listRoute";
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			modelMap.addAttribute("errorMessage", e.getMessage());
+			return "/home";
+		}
+	}
+	
+	
+	@GetMapping("/listRouteStats")
+	public String listRouteStats(ModelMap modelMap, HttpSession session) throws Exception {
+
+		try {
+			
+			List<RouteStats> list = boardingDetailService.findRouteStats();
+			System.out.println("list:" + list);
+			modelMap.addAttribute("ROUTE_STATS_LIST", list);
+
+			return "boarding/listRouteStats";
 
 		} catch (Exception e) {
 			e.printStackTrace();

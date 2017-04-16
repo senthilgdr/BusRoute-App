@@ -24,9 +24,22 @@ public class UserBoardingDetailService {
 	public UserBoardingDetail findByUserId(Long userId) {
 		return userBoardingDetailDAO.findByUserId(userId);
 	}
+	
+	public List<UserBoardingDetail> findByStudent(Long boardingId) {
+		return userBoardingDetailDAO.findByStudent(boardingId);
+	}
+	
 
-	public List<UserBoardingDetail> findByRouteNo(Long routeNo) {
-		return userBoardingDetailDAO.findByRouteNo(routeNo);
+	public Map<String, Long> findByRouteNo(Long routeNo) {
+		List<Map<String, Object>> findByRouteNo = userBoardingDetailDAO.findByRouteNo(routeNo);
+		Map<String,Long> boardingMap = new HashMap<>();
+
+		for (Map<String, Object> map : findByRouteNo) {
+			String boardingName = (String) map.get("name");
+			Long count = (Long) map.get("no_of_students");
+			boardingMap.put(boardingName, count);
+		}
+		return boardingMap;
 	}
 
 	public UserBoardingDetail findById(Long id) {
@@ -67,28 +80,33 @@ public class UserBoardingDetailService {
 		
 	}
 
-	public Map<Long, Long> findBoardingPointStats() {
+	public Map<String, Long> findBoardingPointStats() {
+		
 		List<Map<String, Object>> findBoardingPointStats = userBoardingDetailDAO.findBoardingPointStats();
 
-		Map<Long, Long> routeMap = new HashMap<>();
+		Map<String, Long> routeMap = new HashMap<>();
+		
 		for (Map<String, Object> map : findBoardingPointStats) {
-			Long boarding_id = (Long) map.get("boarding_id");
+			String boarding_name = (String) map.get("boarding_name");
 			Long noOfStudents = (Long) map.get("no_of_students");
-			routeMap.put(boarding_id, noOfStudents);
+			routeMap.put(boarding_name, noOfStudents);
 		}
 
 		return routeMap;
 	}
 
-	public Map<Integer, Long> findByRouteStats() {
+	public Map<String, Long> findByRouteStats() {
 
 		List<Map<String, Object>> routesList = userBoardingDetailDAO.findByRouteStats();
 
-		Map<Integer, Long> routeMap = new HashMap<>();
+		Map<String, Long> routeMap = new HashMap<>();
+		
 		for (Map<String, Object> map : routesList) {
-			Integer routeNo = (Integer) map.get("route_no");
+			String routeName = (String) map.get("route_name");
 			Long noOfStudents = (Long) map.get("no_of_students");
-			routeMap.put(routeNo, noOfStudents);
+			System.out.println("routeNo:"+ routeName);
+			System.out.println("no_of_students:"+ noOfStudents);
+			routeMap.put(routeName, noOfStudents);
 		}
 		return routeMap;
 	}

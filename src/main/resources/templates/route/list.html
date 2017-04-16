@@ -32,7 +32,7 @@
 									
 								<tr th:each="route,iter  : ${ROUTE_LIST}">
 								<td th:text="${iter.index+1}"></td>
-									<td th:text="${route.name}"></td>
+									<td ><a href="" th:href="@{/boardings/listByRoute(routeId=${route.id})}" th:text="${route.id} +'-'+ ${route.name}"></a></td>
 									<td th:text="${route.trip}"></td>
 									
 									<td><a class='btn btn-success' href="" th:href="@{/routes/create}"><span

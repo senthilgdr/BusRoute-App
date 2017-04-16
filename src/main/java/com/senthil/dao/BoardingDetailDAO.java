@@ -48,15 +48,19 @@ public class BoardingDetailDAO {
 	}
 
 	public List<BoardingDetail> findByRouteNo(Long routeNo) {
+		System.out.println(routeNo);
 
 		String sql = "select bd.id,route_id, r.name as route_name, bd.name,pickup_time,bd.active from route_boarding_details bd, routes r where bd.route_id = r.id  and bd.route_id = ?";
 
 		List<BoardingDetail> list = jdbcTemplate.query(sql, new Object[] { routeNo }, (rs, rowNum) -> {
+			
+				
 			return convert(rs);
 		});
+		System.out.println(list);
 		return list;
 	}
-
+	
 	public BoardingDetail findById(Long id) {
 
 		String sql = "select bd.id,route_id, r.name as route_name, bd.name,pickup_time,bd.active from route_boarding_details bd, routes r where bd.route_id = r.id  and bd.id = ?";

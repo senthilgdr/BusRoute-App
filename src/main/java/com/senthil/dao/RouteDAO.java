@@ -17,12 +17,12 @@ public class RouteDAO {
 	private JdbcTemplate jdbcTemplate;
 
 	private Route convert(ResultSet rs) throws SQLException {
-		Route role = new Route();
-		role.setId(rs.getLong("id"));
-		role.setName(rs.getString("name"));
-		role.setTrip(rs.getString("trip"));
-		role.setActive(rs.getBoolean("active"));
-		return role;
+		Route route = new Route();
+		route.setId(rs.getLong("id"));
+		route.setName(rs.getString("name"));
+		route.setTrip(rs.getString("trip"));
+		route.setActive(rs.getBoolean("active"));
+		return route;
 	}
 
 	public List<Route> list() {

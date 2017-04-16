@@ -46,13 +46,15 @@
 				data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
 				<ul class="dropdown-menu">
 
-					<li><a href="../boardings/listByRoute"
-						th:href="@{/boardings/listByRoute}">List of Routes</a></li>
-					<li><a href="../userboardings/listByUser"
-						th:href="@{/userboardings/listByUser}">List of User Boardings</a></li>
-					<li><a href="../userboardings/listByRoute"
-						th:href="@{/userboardings/listByRoute}">List Route
-							UserBoardings</a></li>
+					<li><a href="../boardings/listRouteStats"
+						th:href="@{/boardings/listRouteStats}">Boarding Routes Stats</a></li>
+					
+					<li><a href="../userboardings/boardingstats"
+						th:href="@{/userboardings/boardingstats}">UserBoarding Stats
+							</a></li>
+							<li><a href="../userboardings/routestats"
+						th:href="@{/userboardings/routestats}">UserBoarding Route Stats
+							</a></li>
 				</ul></li>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">My Preferences <span class="caret"></span></a>
@@ -60,7 +62,7 @@
 					<li><a href="../userboardings/create"
 						th:href="@{/userboardings/create}">Add Boarding Point</a></li>
 						
-						<li><a href="../userboardings/create"
+						<li><a href="../userboardings/listByUser"
 						th:href="@{/userboardings/listByUser}">View Boarding Point</a></li>
 				</ul></li>
 			
@@ -94,6 +96,6 @@
 
 <div class="container">
 	<div class="row">
-		<!-- <jsp:include page="errorPage.jsp"></jsp:include> -->
+		
 	</div>
 </div>

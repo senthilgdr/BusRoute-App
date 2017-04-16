@@ -20,6 +20,10 @@ public class UserService {
 
 		return userDAO.findByEmailAndPassword(code, password);
 	}
+	public User findByEmail(String email) {
+
+		return userDAO.findByEmailId(email);
+	}
 
 	public User findById(Long userId) {
 

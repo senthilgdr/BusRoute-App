@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Boarding Point Stats</title>
+</head>
+<body>
+<div th:include="layout/header"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-14">
+				<div class="portlet-title">
+					<div class="page-header">
+						<h3>Boarding Point Stats</h3>
+					</div>
+				</div>
+				<div class="portlet-body" >
+					<div class="table-responsive">
+						<table class="table table-bordered">
+
+							<thead>
+								<tr>
+									<th>BOARDING POINT</th>									
+									<th>NO OF STUDENTS</th>													
+									
+								</tr>
+							</thead>
+							<tbody>									
+								<tr th:each="bs:${BOARDING_STATS}">
+								<td th:text="${bs.key}"></td>
+								<td th:text="${bs.value}"></td>
+									
+									<!-- <td th:text="${bs.boardingDetail.id} +'-' + ${userboarding.boardingDetail.name}"></td>
+									<td th:text="${userboarding.user.id}"></td>	 -->							
+
+								</tr>
+
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+</html>

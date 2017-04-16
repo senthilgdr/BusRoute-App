@@ -61,10 +61,37 @@ public class UserBoardingDetailDAO {
 		String sql = "select ubd.id, user_id, u.name as user_name, boarding_id, bd.name as boarding_name, bd.pickup_time, ubd.active, r.id as route_no, r.name as route_name from user_boarding_details ubd, route_boarding_details bd, routes r , user_accounts u  where ubd.user_id = u.id and ubd.boarding_id =  bd.id and bd.route_id = r.id  and ubd.user_id = ?";
 
 		UserBoardingDetail list = jdbcTemplate.queryForObject(sql, new Object[] { userId }, (rs, rowNum) -> {
+			
 			return convert(rs);
 		});
 		return list;
 	}
+	
+	public List<UserBoardingDetail> findByStudent(Long boardingId) {
+
+		String sql = "select ubd.id, u.id as user_id, u.name as user_name, bd.id as boarding_id, bd.name as boarding_name, bd.pickup_time from user_boarding_details ubd, route_boarding_details bd, user_accounts u  where ubd.user_id = u.id and ubd.boarding_id =  bd.id and ubd.boarding_id = ?";
+
+		List<UserBoardingDetail> list = jdbcTemplate.query(sql, new Object[] { boardingId }, (rs, rowNum) -> {
+			UserBoardingDetail ubd = new UserBoardingDetail();
+			ubd.setId(rs.getLong("id"));
+						
+			User user = new User();
+			user.setId(rs.getLong("user_id"));
+			user.setName(rs.getString("user_name"));
+
+			BoardingDetail bd = new BoardingDetail();
+			bd.setId(rs.getLong("boarding_id"));
+			bd.setName(rs.getString("boarding_name"));
+			bd.setPickUpTime(rs.getTime("pickup_time").toLocalTime());			
+			ubd.setUser(user);
+			ubd.setBoardingDetail(bd);
+
+			return ubd;
+			
+		});
+		return list;
+	}
+	
 
 	public UserBoardingDetail findById(Long id) {
 
@@ -103,19 +130,18 @@ public class UserBoardingDetailDAO {
 		System.out.println("No of rows inserted" + rows);
 	}
 
-	public List<UserBoardingDetail> findByRouteNo(Long routeNo) {
+	public List<Map<String, Object>> findByRouteNo(Long routeNo) {		
 
-		String sql = "select ubd.id, user_id, u.name as user_name, boarding_id, bd.name as boarding_name, bd.pickup_time, ubd.active, r.id as route_no, r.name as route_name from user_boarding_details ubd, route_boarding_details bd, routes r , user_accounts u  where ubd.user_id = u.id and ubd.boarding_id =  bd.id and bd.route_id = r.id  and bd.route_id = ?";
-
-		List<UserBoardingDetail> list = jdbcTemplate.query(sql, new Object[] { routeNo }, (rs, rowNum) -> {
-			return convert(rs);
-		});
+		String sql="SELECT bd.name, COUNT(*) no_of_students FROM user_boarding_details ubd, route_boarding_details bd "
+				+ "WHERE ubd.boarding_id = bd.id AND bd.route_id = ? GROUP BY bd.name";
+		List<Map<String,Object>> list = jdbcTemplate.queryForList(sql, new Object[] { routeNo });
+		System.out.println(list);
 		return list;
 	}
 
 	public List<Map<String, Object>> findBoardingPointStats() {
 
-		String sql = "SELECT boarding_id, COUNT(*) no_of_students FROM user_boarding_details ubd where active=1 GROUP BY boarding_id";
+		String sql = "SELECT CONCAT( CONCAT(boarding_id, '-'),NAME) AS boarding_name , COUNT(*) no_of_students FROM user_boarding_details ubd ,route_boarding_details rbd WHERE ubd.boarding_id = rbd.id AND ubd.active=1 GROUP BY boarding_id";
 
 		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
 		return list;
@@ -124,7 +150,7 @@ public class UserBoardingDetailDAO {
 
 	public List<Map<String, Object>> findByRouteStats() {
 
-		String sql = "SELECT route_id, COUNT(*) no_of_students FROM user_boarding_details ubd , route_boarding_details rbd WHERE  ubd.boarding_id = rbd.id AND  ubd.active=1 AND rbd.active = 1  GROUP BY route_id";
+		String sql = "SELECT CONCAT( CONCAT(route_id, '-'),r.NAME)AS route_name , COUNT(*) no_of_students FROM user_boarding_details ubd , route_boarding_details rbd,routes r WHERE  ubd.boarding_id = rbd.id AND rbd.route_id = r.id AND  ubd.active=1 AND rbd.active = 1  GROUP BY route_id";
 
 		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
 		return list;

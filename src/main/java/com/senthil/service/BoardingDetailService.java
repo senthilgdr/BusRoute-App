@@ -42,6 +42,7 @@ public class BoardingDetailService {
 	public List<BoardingDetail> findByRouteNo(Long routeNo) {
 		return boardingDetailDAO.findByRouteNo(routeNo);
 	}
+	
 	public List<RouteStats> findRouteStats() {
 		return boardingDetailDAO.findRouteStats();
 	}

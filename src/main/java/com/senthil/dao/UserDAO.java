@@ -41,10 +41,10 @@ public class UserDAO {
 
 		String sql = "select u.id, u.name, u.role_id ,r.name as role_name, u.email, u.mobile_no, u.active, u.created_at, u.modified_at from user_accounts u, roles r where u.role_id = r.id AND u.email = ? and password = ?";
 
-		User employee = null;
+		User user = null;
 
 		try {
-			employee = jdbcTemplate.queryForObject(sql, new Object[] { emailId, password }, (rs, rowNum) -> {
+			user = jdbcTemplate.queryForObject(sql, new Object[] { emailId, password }, (rs, rowNum) -> {
 
 				return convert(rs);
 
@@ -53,10 +53,10 @@ public class UserDAO {
 			e.printStackTrace();
 
 		}
-		return employee;
+		return user;
 
 	}
-
+	
 	public User findById(Long id) {
 
 		String sql = "select u.id, u.name, u.role_id ,r.name as role_name, u.email, u.mobile_no, u.active, u.created_at, u.modified_at from user_accounts u, roles r where u.role_id = r.id AND u.id = ?";

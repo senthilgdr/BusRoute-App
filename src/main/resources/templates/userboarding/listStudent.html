@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>List of Route Boardings</title>
+<title>List of Students</title>
 </head>
 <body>
 <div th:include="layout/header"></div>
@@ -12,7 +12,8 @@
 			<div class="col-md-14">
 				<div class="portlet-title">
 					<div class="page-header">
-						<h3 th:text="${ROUTE_DETAIL.name}">List of Route Boardings</h3>
+					<h3>List of Students:Boarding Name</h3>
+						<h4 th:text="${BOARDING_DETAIL.name}">List of Students</h4>
 					</div>
 				</div>
 				<div class="portlet-body" >
@@ -30,19 +31,12 @@
 							<tbody>
 
 									
-								<tr th:each="boarding,iter  : ${BOARDING_LIST}">
+								<tr th:each="boarding,iter  : ${STUDENT_BOARDING_DETAIL}">
 								<td th:text="${iter.index+1}"></td>
-									<td><a href="" th:href="@{/userboardings/listByStudent(boardingId=${boarding.id})}" th:text="${boarding.id}+'-'+ ${boarding.name}"></a></td>
+									<td  th:text="${boarding.user.id}+'-'+ ${boarding.user.name}"></td>
 					
-									<td th:text="${boarding.pickUpTime}"></td>
+									<td th:text="${boarding.boardingDetail.pickUpTime}"></td>
 									
-									<td><a class='btn btn-success'  href=""
-										th:href="@{/boardings/edit(id=${boarding.id})}"><span
-											class='icon-pencil'></span>Edit</a></td>
-									<td><a class='btn btn-danger'  href=""
-										th:href="@{/boardings/delete(id=${boarding.id})}"><span
-											class='icon-pencil'></span>Delete</a></td>
-
 								</tr>
 
 							</tbody>

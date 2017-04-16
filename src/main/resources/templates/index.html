@@ -3,10 +3,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Welcome to User Login</title>
+<link rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="../css/bootstrap_custom_nav_bar.css" />
+<link rel="stylesheet" href="../css/style.css"
+	th:href="@{/css/style.css}" />
+<link rel="stylesheet" href="../css/mdb.min.css"
+	th:href="@{/css/mdb.min.css}" />
+	
+
+<script src="../js/jquery.min.js" th:href="@{/js/jquery.min.js}"></script>
+<script src="../js/bootstrap.min.js" th:href="@{/js/bootstrap.min.js}"></script>
+<script src="../js/mdb.min.js" th:href="@{/js/mdb.min.js}"></script>
+<script src="../js/tether.min.js" th:href="@{/js/tether.min.js}"></script>
+
+<script src="../js/loginformindex.js" th:href="@{/js/loginformindex.js}"></script>
+
+<link rel="stylesheet" href="../css/loginformstyle.css"
+	th:href="@{/css/loginformstyle.css}" />
+
+
 </head>
 <body>
 	
-	<div th:include="layout/header"></div>
+	<!-- <div th:include="layout/header"></div> -->
 
 	<div class="container">
 
@@ -38,8 +58,8 @@
 							<button type="submit" name="add" class="btn btn-success"
 								id="addLoginBtn">SIGN IN</button>
 						</div>
-						<div class="row">
-							<a href="../users/getForgotpassword" th:href="@{users/getForgotpassword}" class="btn btn-link">Forgot
+						<div class="form-group">
+							<a href="../users/getForgotpassword" th:href="@{users/getForgotpassword}" class="btn btn-danger">Forgot
 								Your Password?</a>
 						</div>
 						<hr />
